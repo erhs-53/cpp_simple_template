@@ -1,0 +1,229 @@
+# Makefile generated using Team 980's Makefile generation script
+# Do not edit!!!
+#
+# The file ".wrmakefile" is the template used by the Wind River Workbench to
+# generate the makefiles of this project. Add user-specific build targets and
+# make rules only(!) in this project's ".wrmakefile" file. These will then be
+# automatically dumped into the makefiles.
+
+export WIND_HOME=/home/ozzloy/.ucpp/gccdist/WindRiver
+export WIND_BASE=/home/ozzloy/.ucpp/gccdist/WindRiver/vxworks-6.3
+export WIND_LIC_PROXY=/home/ozzloy/.ucpp/gccdist/WindRiver/setup/x86-win32/bin/
+export LM_LICENSE_FILE=/home/ozzloy/.ucpp/gccdist/WindRiver/license/zwrsLicense.lic
+export WINEDEBUG=fixme-all
+
+WIND_HOME := $(subst \,/,$(WIND_HOME))
+WIND_BASE := $(subst \,/,$(WIND_BASE))
+WIND_USR := $(subst \,/,$(WIND_USR))
+
+all : pre_build main_all post_build
+
+_clean ::
+	@echo "make: removing targets and objects of `pwd`"
+
+TRACE=0
+TRACEON=$(TRACE:0=@)
+TRACE_FLAG=$(TRACEON:1=)
+
+MAKEFILE := Makefile
+
+FLEXIBLE_BUILD := 1
+
+BUILD_SPEC = PPC603gnu
+DEBUG_MODE = 1
+ifeq ($(DEBUG_MODE),1)
+MODE_DIR := Debug
+else
+MODE_DIR := NonDebug
+endif
+OBJ_DIR := .
+PRJ_ROOT_DIR := /home/ozzloy/FIRST/2012/erhs/workspace/cpp_simple_template
+WS_ROOT_DIR := /home/ozzloy/FIRST/2012/erhs/workspace
+
+
+
+#Global Build Macros
+PROJECT_TYPE = DKM
+DEFINES = 
+EXPAND_DBG = 0
+
+
+#BuildSpec specific Build Macros
+VX_CPU_FAMILY = ppc
+CPU = PPC603
+TOOL_FAMILY = gnu
+TOOL = gnu
+TOOL_PATH = wine /home/ozzloy/.ucpp/gccdist/WindRiver/gnu/3.4.4-vxworks-6.3/x86-win32/bin/
+CC_ARCH_SPEC = -mcpu=603 -mstrict-align -mno-implicit-fp  -mlongcall
+LIBPATH = 
+LIBS = 
+
+IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_BASE)/target/h/wrn/coreip -I. 
+
+IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
+
+
+
+#BuildTool flags
+ifeq ($(DEBUG_MODE),1)
+DEBUGFLAGS_C-Compiler = -g
+DEBUGFLAGS_C++-Compiler = -g
+DEBUGFLAGS_Linker = -g
+DEBUGFLAGS_Partial-Image-Linker = 
+DEBUGFLAGS_Librarian = 
+DEBUGFLAGS_Assembler = -g
+else
+DEBUGFLAGS_C-Compiler = -O2 -fstrength-reduce -fno-builtin
+DEBUGFLAGS_C++-Compiler = -O2 -fstrength-reduce -fno-builtin
+DEBUGFLAGS_Linker = -O2 -fstrength-reduce -fno-builtin
+DEBUGFLAGS_Partial-Image-Linker = 
+DEBUGFLAGS_Librarian = 
+DEBUGFLAGS_Assembler = -O2 -fstrength-reduce -fno-builtin
+endif
+
+
+#Project Targets
+PROJECT_TARGETS = cpp_simple_template/$(MODE_DIR)/cpp_simple_template.out \
+	 cpp_simple_template_partialImage/$(MODE_DIR)/cpp_simple_template_partialImage.o
+
+
+#Rules
+
+# cpp_simple_template
+ifeq ($(DEBUG_MODE),1)
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -g
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -g
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -g
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -g
+else
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -O2 -fstrength-reduce -fno-builtin
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -O2 -fstrength-reduce -fno-builtin
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -O2 -fstrength-reduce -fno-builtin
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+cpp_simple_template/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -O2 -fstrength-reduce -fno-builtin
+endif
+cpp_simple_template/$(MODE_DIR)/% : IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_BASE)/target/h/wrn/coreip -I. 
+cpp_simple_template/$(MODE_DIR)/% : IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
+cpp_simple_template/$(MODE_DIR)/% : PROJECT_TYPE = DKM
+cpp_simple_template/$(MODE_DIR)/% : DEFINES = 
+cpp_simple_template/$(MODE_DIR)/% : EXPAND_DBG = 0
+cpp_simple_template/$(MODE_DIR)/% : VX_CPU_FAMILY = ppc
+cpp_simple_template/$(MODE_DIR)/% : CPU = PPC603
+cpp_simple_template/$(MODE_DIR)/% : TOOL_FAMILY = gnu
+cpp_simple_template/$(MODE_DIR)/% : TOOL = gnu
+cpp_simple_template/$(MODE_DIR)/% : TOOL_PATH = wine /home/ozzloy/.ucpp/gccdist/WindRiver/gnu/3.4.4-vxworks-6.3/x86-win32/bin/
+cpp_simple_template/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603 -mstrict-align -mno-implicit-fp  -mlongcall
+cpp_simple_template/$(MODE_DIR)/% : LIBPATH = 
+cpp_simple_template/$(MODE_DIR)/% : LIBS = 
+cpp_simple_template/$(MODE_DIR)/% : OBJ_DIR := cpp_simple_template/$(MODE_DIR)
+
+OBJECTS_cpp_simple_template = cpp_simple_template_partialImage/$(MODE_DIR)/cpp_simple_template_partialImage.o
+
+cpp_simple_template/$(MODE_DIR)/cpp_simple_template.out : $(OBJECTS_cpp_simple_template)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@";rm -f "$@";$(TOOL_PATH)nmppc.exe $(OBJECTS_cpp_simple_template) $(IDE_LIBRARIES) | tclsh $(WIND_BASE)/host/resource/hutils/tcl/munch.tcl -c ppc > $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc.exe $(DEBUGFLAGS_Linker) $(CC_ARCH_SPEC) -fdollars-in-identifiers -Wall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES)  -o $(OBJ_DIR)/ctdt.o -c $(OBJ_DIR)/ctdt.c; $(TOOL_PATH)ccppc.exe -r -nostdlib -Wl,-X -T $(WIND_BASE)/target/h/tool/gnu/ldscripts/link.OUT -o "$@" $(OBJ_DIR)/ctdt.o $(OBJECTS_cpp_simple_template) $(IDE_LIBRARIES) $(LIBPATH) $(LIBS)  $(ADDED_LIBPATH) $(ADDED_LIBS) && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
+
+cpp_simple_template/$(MODE_DIR)/cpp_simple_template_compile_file : $(FILE) ;
+
+_clean :: cpp_simple_template/$(MODE_DIR)/cpp_simple_template_clean
+
+cpp_simple_template/$(MODE_DIR)/cpp_simple_template_clean : 
+	$(TRACE_FLAG)if [ -d "cpp_simple_template" ]; then cd "cpp_simple_template"; rm -rf $(MODE_DIR); fi
+
+
+# cpp_simple_template_partialImage
+ifeq ($(DEBUG_MODE),1)
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -g
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -g
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -g
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -g
+else
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C-Compiler = -O2 -fstrength-reduce -fno-builtin
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_C++-Compiler = -O2 -fstrength-reduce -fno-builtin
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Linker = -O2 -fstrength-reduce -fno-builtin
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Partial-Image-Linker = 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Librarian = 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEBUGFLAGS_Assembler = -O2 -fstrength-reduce -fno-builtin
+endif
+cpp_simple_template_partialImage/$(MODE_DIR)/% : IDE_INCLUDES = -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/WPILib -I$(WIND_BASE)/target/h/wrn/coreip -I. 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : IDE_LIBRARIES = $(WIND_BASE)/target/lib/WPILib.a 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : PROJECT_TYPE = DKM
+cpp_simple_template_partialImage/$(MODE_DIR)/% : DEFINES = 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : EXPAND_DBG = 0
+cpp_simple_template_partialImage/$(MODE_DIR)/% : VX_CPU_FAMILY = ppc
+cpp_simple_template_partialImage/$(MODE_DIR)/% : CPU = PPC603
+cpp_simple_template_partialImage/$(MODE_DIR)/% : TOOL_FAMILY = gnu
+cpp_simple_template_partialImage/$(MODE_DIR)/% : TOOL = gnu
+cpp_simple_template_partialImage/$(MODE_DIR)/% : TOOL_PATH = wine /home/ozzloy/.ucpp/gccdist/WindRiver/gnu/3.4.4-vxworks-6.3/x86-win32/bin/
+cpp_simple_template_partialImage/$(MODE_DIR)/% : CC_ARCH_SPEC = -mcpu=603 -mstrict-align -mno-implicit-fp  -mlongcall
+cpp_simple_template_partialImage/$(MODE_DIR)/% : LIBPATH = 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : LIBS = 
+cpp_simple_template_partialImage/$(MODE_DIR)/% : OBJ_DIR := cpp_simple_template_partialImage/$(MODE_DIR)
+
+cpp_simple_template_partialImage/$(MODE_DIR)/Objects/cpp_simple_template/MyRobot.o : /home/ozzloy/FIRST/2012/erhs/workspace/cpp_simple_template/MyRobot.cpp
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc.exe $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+OBJECTS_cpp_simple_template_partialImage = cpp_simple_template_partialImage/$(MODE_DIR)/Objects/cpp_simple_template/MyRobot.o 
+
+cpp_simple_template_partialImage/$(MODE_DIR)/cpp_simple_template_partialImage.o : $(OBJECTS_cpp_simple_template_partialImage)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc.exe -r -nostdlib -Wl,-X  -o "$@" $(OBJECTS_cpp_simple_template_partialImage) $(LIBPATH) $(LIBS) $(ADDED_LIBPATH) $(ADDED_LIBS)  && if [ "$(EXPAND_DBG)" = "1" ]; then plink "$@";fi
+
+cpp_simple_template_partialImage/$(MODE_DIR)/cpp_simple_template_partialImage_compile_file : $(FILE) ;
+
+_clean :: cpp_simple_template_partialImage/$(MODE_DIR)/cpp_simple_template_partialImage_clean
+
+cpp_simple_template_partialImage/$(MODE_DIR)/cpp_simple_template_partialImage_clean : 
+	$(TRACE_FLAG)if [ -d "cpp_simple_template_partialImage" ]; then cd "cpp_simple_template_partialImage"; rm -rf $(MODE_DIR); fi
+
+DEP_FILES := cpp_simple_template_partialImage/$(MODE_DIR)/Objects/cpp_simple_template/MyRobot.d 
+##DEP_FILES not used on Linux##
+
+
+
+-include $(PRJ_ROOT_DIR)/*.makefile
+
+-include *.makefile
+
+main_all : external_build $(PROJECT_TARGETS)
+	@echo "make: built targets of `pwd`"
+
+# entry point for extending the build
+external_build ::
+	@echo ""
+
+# main entry point for pre processing prior to the build
+pre_build :: $(PRE_BUILD_STEP) generate_sources
+	@echo ""
+
+# entry point for generating sources prior to the build
+generate_sources ::
+	@echo ""
+
+# main entry point for post processing after the build
+post_build :: $(POST_BUILD_STEP) deploy_output
+	@echo ""
+
+# entry point for deploying output after the build
+deploy_output ::
+	@echo ""
+
+clean :: external_clean $(CLEAN_STEP) _clean
+
+# entry point for extending the build clean
+external_clean ::
+	@echo ""
+
+
+# Custom targets inserted by ucpp
+
+deploy: $(PROJECT_TARGETS)
+	wput -u cpp_simple_template/Debug/cpp_simple_template.out ftp://anonymous@10.0.53.2/ni-rt/system/FRC_UserProgram.out
+
+undeploy:
+	ftp 10.0.53.2 < /home/ozzloy/bin/ucpp/ucpp/delcode
+
